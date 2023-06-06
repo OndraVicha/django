@@ -11,3 +11,5 @@ admin.site.register(Crew)
 admin.site.register(Machine)
 
 admin.site.register(Tank)
+
+admin.site.register(Attachment)
