@@ -1,0 +1,16 @@
+{% for tank in osadkas_list %}
+     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+         <div class="card">
+         {% if tank.poster %}
+            <img class="card-img-top" src="{{ tank.poster.url }}" alt="{{ tank.tank }}">
+         {% endif %}
+             <div class="card-body">
+             <h4 class="card-title"><a href="{% url 'osadka_detail' tank.machine.pk %}">{{ tank.tank }} ({{ tank.machine }})</a></h4>
+                 <p class="card-title"><strong>Průbojnost:</strong> {{ tank.machine.penetration }} milimetrů</p>
+                  <p class="card-title"><strong>Váha:</strong> {{ tank.machine.weight }} tun</p>
+                <p class="card-title"><strong>Osádka v tanku:</strong> {{ tank.machine.crew.count }}</p>
+                <a href="{% url 'osadka_detail' tank.machine.pk %}" class="btn btn-primary">Podrobnosti</a>
+             </div>
+         </div>
+     </div>
+ {% endfor %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Detail spolecnosti{% endblock %}
+{% block css %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekkolightbox.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div class="row mb-3">
+    <div class="col-sm-12 bg-warning">
+        <h2 class="text-center">Podrobné informace o firmě</h2>
+        <div class="text-center">
+                    <h4><strong>Tank:</strong>
+                    {% for tank in company_detail.tank_set.all %}
+                        {{ tank.tank }}
+                    {% endfor %}</h4>
+            </div>
+    </div>
+</div>
+    <div class="row mt-5 mb-3 justify-content-center">
+        <div class="row mt-5 mb-3 justify-content-center">
+            <h2 class="display-4 mb-3 text-center">{{ company_detail.name }}</h2>
+            <div class="row">
+                <div class="mb-3 col-md-6 text-center mx-auto">
+                    <p>{{ company_detail.info }}</p>
+                    <p>
+                        <strong>Country:</strong>  {% for tank in company_detail.tank_set.all %} {{ tank.country }} {% endfor %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Detail spolecnosti{% endblock %}
+{% block css %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekkolightbox.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div class="row mb-3">
+    <div class="col-sm-12 bg-warning">
+        <h2 class="text-center">Podrobné informace o tanku</h2>
+        <div class="text-center">
+            <h4><strong>Tank:</strong>
+                {% for tank in osadka_detail.tank_set.all %} {{ tank.tank }} {% endfor %}
+            </h4>
+        </div>
+    </div>
+</div>
+<div class="row mt-5 mb-3">
+    <div class="col-md-6">
+        <div class="mb-3 text-center">
+            <h4><strong>Historie</strong></h4>
+            {% for tank in osadka_detail.tank_set.all %}
+                <p class="mt-3">{{ tank.history }}</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="mb-3">
+            <h4><strong>Členové osádky:</strong></h4>
+            {% for crew_member in osadka_detail.crew.all %}
+                <p><strong>{{ crew_member.tank_type }}</strong> {{ crew_member.name }} {{ crew_member.surname }} narozen {{ crew_member.birth_date }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

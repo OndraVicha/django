@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Seznam tanků{% endblock %}
+{% block content %}
+<div class="row mt-3 mb-3 bg-warning p-3">
+     <div class="col-sm-12 bg-warning">
+        <h2 class="text-center">Seznam všech tanků s osádkou</h2>
+     </div>
+</div>
+<div class="row">
+    {% include 'tanky/machine/machine.html' %}
+</div>
+{% endblock %}

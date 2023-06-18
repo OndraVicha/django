@@ -1,0 +1,27 @@
+<div class="row">
+     {% for tank in tanks %}
+     <div class="col-sm-4">
+         <div class="card">
+             <h4 class="card-title"><p class="card-text"><strong>Název:</strong> {{ tank.tank }}</h4>
+         {% if tank.poster %}
+         <img class="card-img-top" src="{{ tank.poster.url }}" alt="{{ tank.tank }}">
+         {% endif %}
+             <div class="card-body">
+             <h4 class="card-title">{{ tank.title }} {{ machine.name }}</h4>
+             <p class="card-text"><strong>Typ tanku:</strong>
+             {{ tank.tank_type }}
+             </p>
+                 <p class="card-text"><strong>Společnost:</strong> {{ tank.company_name }}
+                 </p>
+                 <p class="card-text"><strong>Stát:</strong> {{ tank.country }}
+                 </p>
+             </div>
+         </div>
+     </div>
+     {% endfor %}
+</div>
+<div class="row">
+     <div class="col-sm-12">
+        <strong>Celkový počet tanků:</strong> {{ num_tanks }}
+     </div>
+</div>
